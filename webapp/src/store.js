@@ -28,6 +28,21 @@ export default new Vuex.Store({
   mutations: {
     addToDo(state, todo) {
       state.todos = [...state.todos, {...todo, done: false, id: state.todos.length+1}];
+    },
+    updateTodo(state, newTodo) {
+      console.log("updating");
+      state.todos = state.todos.map((currentTodo) => {
+        if (currentTodo.id === newTodo.id) {
+          return newTodo;
+        }
+        return currentTodo;
+      });
+    },
+    deleteTodo(state, newTodo) {
+      console.log("updating");
+      state.todos = state.todos.filter((currentTodo) => {
+        return currentTodo.id !== newTodo.id
+      });
     }
   },
   actions: {

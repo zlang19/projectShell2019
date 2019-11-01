@@ -6,6 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import ToDo from './todo';
+import Categroy from './category';
 
 @Entity()
 export default class User {
@@ -18,6 +19,6 @@ export default class User {
   @Column({ type: 'varchar', nullable: false })
   password
 
-  @OneToMany(() => ToDo, (todo) => todo.user, { eager: true })
-  todos
+  @OneToMany(() => Categroy, (category) => category.user, { eager: true })
+  categories
 }
